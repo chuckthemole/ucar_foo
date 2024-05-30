@@ -10,7 +10,7 @@ setup(
     author='Charles Thomas',
     author_email='chuckthemole@gmail.com',
     description='A package for calculating the Foo for spheres.',
-    url='https://github.com/yourusername/foo_parameterization',
+    url='https://github.com/chuckthemole/ucar_foo.git',
     classifiers=['Programming Language :: Python :: 3'],
     python_requires='>=3.6',
 )
