@@ -1,5 +1,14 @@
 import math
-from shape.three_dimensional.three_dimensional_shape import ThreeDimensionalShape
+try:
+    from shape.three_dimensional.three_dimensional_shape import ThreeDimensionalShape
+except ImportError:
+    print("ImportError: Unable to import ThreeDimensionalShape from shape.three_dimensional.three_dimensional_shape")
+    print("Trying to import ThreeDimensionalShape from foo.shape.three_dimensional.three_dimensional_shape")
+    try:
+        from foo.shape.three_dimensional.three_dimensional_shape import ThreeDimensionalShape
+    except ImportError:
+        print("ImportError: Unable to import ThreeDimensionalShape from foo.shape.three_dimensional.three_dimensional_shape")
+        exit(1)
 
 """
 This class provides functions to calculate aspects of a sphere.

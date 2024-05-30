@@ -11,7 +11,16 @@ python foo.py
 """
 
 import argparse
-from shape.three_dimensional.sphere import Sphere
+try:
+    from shape.three_dimensional.sphere import Sphere
+except ImportError:
+    print("ImportError: Unable to import Sphere from shape.three_dimensional.sphere")
+    print("Trying to import Sphere from foo.shape.three_dimensional.sphere")
+    try:
+        from foo.shape.three_dimensional.sphere import Sphere
+    except ImportError:
+        print("ImportError: Unable to import Sphere from foo.shape.three_dimensional.sphere")
+        exit(1)
 
 ERROR = -1
 
@@ -31,7 +40,7 @@ class Foo:
         float : The volume of the sphere.
         """
 
-        print(f"Calculating the volume of a sphere with radius {radius}.")
+        print(f"- - -    Calculating the volume of a sphere with radius {radius}    - - - ")
         
         try:
             sphere = Sphere(radius)
@@ -59,6 +68,7 @@ class Foo:
         """
         Main function.
         """
+
         args = self.add_args()
         if args.volume:
             volume = self.sphere_calculate_volume_given_radius(args.radius)

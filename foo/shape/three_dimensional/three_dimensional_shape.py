@@ -5,7 +5,16 @@ TODO: This class can be expanded to include many other features, including but n
 
 from abc import abstractmethod
 
-from shape.shape import Shape
+try:
+    from shape.shape import Shape
+except ImportError:
+    print("ImportError: Unable to import Shape from shape.shape")
+    print("Trying to import Shape from foo.shape.shape")
+    try:
+        from foo.shape.shape import Shape
+    except ImportError:
+        print("ImportError: Unable to import Shape from foo.shape.shape")
+        exit(1)
 
 class ThreeDimensionalShape(Shape):
     """
